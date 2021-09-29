@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using static H3.Constants;
 
-namespace H3.Model {
+namespace H3.Model
+{
 
-    public static class LookupTables {
+    public static class LookupTables
+    {
 
         #region basecells
         public static readonly BaseCell[] BaseCells = new BaseCell[NUM_BASE_CELLS] {
@@ -889,7 +891,8 @@ namespace H3.Model {
         };
 
         public static readonly Dictionary<Direction, CoordIJK> DirectionToUnitVector =
-            Enum.GetValues<Direction>().ToDictionary(e => e, e => e switch {
+            Enum.GetValues(typeof(Direction)).Cast<Direction>().ToDictionary(e => e, e => e switch
+            {
                 Direction.Invalid => CoordIJK.InvalidIJKCoordinate,
                 _ => UnitVectors[(int)e]
             });
